@@ -2,7 +2,7 @@
 dev note :{
 this antidelet code coded by mr wasi  kindly give credits 
 **/
-import antidelete from './king/Sarkar/antidelete.js'; // Import the antidelete handler
+import antidelete from './king/Sarkar/antidelet.js'; // Import the antidelete handler
 import config from '../config.cjs';
 
 const botOwnerNumber = config.OWNER_NUMBER; // Bot owner number from config
