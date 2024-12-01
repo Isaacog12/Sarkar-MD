@@ -1,23 +1,23 @@
 import pkg, { prepareWAMessageMedia } from '@whiskeysockets/baileys';
 const { generateWAMessageFromContent } = pkg;
-import axios from 'axios'; // Import axios for HTTP requests
+import axios from 'axios';
 
 const handleRepoCommand = async (m, Matrix) => {
-  const repoUrl = 'https://api.github.com/repos/Sarkar-Bandaheali/Sarkar-MD';
   try {
-    const response = await axios.get(repoUrl);
-    const repoData = response.data;
+    // WhatsApp Channel and Group Links
+    const channelLink = 'https://whatsapp.com/channel/0029VajGHyh2phHOH5zJl73P';
+    const groupLink = 'https://chat.whatsapp.com/C5js5lDia5Y8dcAoXj4mpq';
 
-    const { full_name, name, forks_count, stargazers_count, created_at, updated_at } = repoData;
+    // VIP-Styled Message Text
+    const messageText = `╭─❒ 「 *Sarkar-MD* 」 ❒──\n│\n│ *Hello, ${m.pushName}!*\n│\n│ Welcome to *Sarkar-MD,* a premium WhatsApp bot\n│ created by *Bandaheali.* This bot is packed with\n│ amazing features to enhance your experience!\n│\n╰───────────────────❒\n\n◈ *❲❒❳ Features & Info*\n\n*➤ WhatsApp Channel:*\n[Join Now](${channelLink})\n\n*➤ WhatsApp Group:*\n[Join Now](${groupLink})\n\n_Stay connected for updates, features,\nand premium services!_\n\n*© Powered by Sarkar-MD.*`;
 
-    const messageText = `Hello *_${m.pushName}_,*\nThis is *Sarkar-MD,* a WhatsApp bot Created by *Bandaheali,* enhanced with amazing features to make your WhatsApp communication and interaction experience amazing!\n\n*❲❒❳ Name:* ${name}\n*❲❒❳ Stars:* ${stargazers_count}\n*❲❒❳ Forks:* ${forks_count}\n*❲❒❳ Created On:* ${new Date(created_at).toLocaleDateString()}\n*❲❒❳ Last Updated:* ${new Date(updated_at).toLocaleDateString()}\n\n*© Powered by Sarkar-MD*`;
-
+    // Send the message
     await Matrix.sendMessage(m.from, { text: messageText }, { quoted: m });
-    await m.React("✅");
+    await m.react('✅');
   } catch (error) {
-    console.error("Error processing your request:", error);
-    m.reply('Error processing your request.');
-    await m.React("❌");
+    console.error('Error processing your request:', error);
+    m.reply('❌ Error processing your request.');
+    await m.react('❌');
   }
 };
 
