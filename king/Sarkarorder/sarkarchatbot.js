@@ -1,5 +1,5 @@
 import config from '../../config.cjs';
-import fetch from 'node-fetch'; // Ensure you have this installed with `npm install node-fetch`
+import fetch from 'node-fetch'; // Ensure this is installed
 
 // Main command function
 const chatbotCommand = async (m, Matrix) => {
@@ -10,7 +10,7 @@ const chatbotCommand = async (m, Matrix) => {
   const text = m.body.slice(prefix.length + cmd.length).trim();
 
   if (cmd === 'chatbot') {
-    if (!isCreator) return m.reply("*Only admin*");
+    if (!isCreator) return m.reply("*Only admin can control this command*");
     let responseMessage;
 
     if (text === 'on') {
@@ -31,12 +31,15 @@ const chatbotCommand = async (m, Matrix) => {
     }
   }
 
-  if (config.CHAT_BOT && !cmd) {
+  if (config.CHATBOT_ENABLED && !cmd) {
     try {
+      // Fetch the response from your API
       const apiResponse = await fetch(`https://www.dark-yasiya-api.site/ai/chatgpt?q=${encodeURIComponent(m.body)}`);
       const jsonResponse = await apiResponse.json();
+      console.log("API Response:", jsonResponse); // Debugging purpose
 
-      if (jsonResponse.response) {
+      // Check for a valid response from the API
+      if (jsonResponse && jsonResponse.response) {
         await Matrix.sendMessage(m.from, { text: jsonResponse.response }, { quoted: m });
       } else {
         await Matrix.sendMessage(m.from, { text: "Sorry, I couldn't understand that." }, { quoted: m });
