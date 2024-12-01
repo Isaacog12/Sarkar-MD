@@ -1,1 +1,51 @@
-function _0x3f41(){const _0x28456b=['Error:','965088cwAUUD','from','remoteJid','Chatbot\x20is\x20now\x20OFF!','5YjBdXV','@s.whatsapp.net','log','1395562qpbALV','CHAT_BOT','chatbot\x20on','170ikmDLS','parse','Chatbot\x20is\x20OFF.\x20Ignoring\x20the\x20message.','https://www.dark-yasiya-api.site/ai/chatgpt?q=','url','trim','Ignoring\x20message\x20from\x20a\x20group\x20or\x20WhatsApp\x20channel.','dirname','sendMessage','json','OWNER_NUMBER','Something\x20went\x20wrong.\x20Please\x20try\x20again.','1876944XLQmOW','key','@broadcast','resolve','PREFIX','../chatbot_state.json','chatbot\x20off','readFile','pathname','1067yekmeu','221230AtyDrp','API\x20request\x20failed\x20with\x20status\x20','1915236trikyU','utf-8','stringify','sender','includes','👾SARKAR-MD\x20AI\x20ASSISTANT.🤭\x0a\x0a','isOn','6381bZTKCc','Sorry,\x20I\x20couldn\x27t\x20understand\x20that.','4835952PiFaAW','16ylBRxv','status','writeFile'];_0x3f41=function(){return _0x28456b;};return _0x3f41();}const _0x288329=_0x5c7f;function _0x5c7f(_0x301cde,_0x75670c){const _0x3f41fc=_0x3f41();return _0x5c7f=function(_0x5c7f5e,_0x5f4f9c){_0x5c7f5e=_0x5c7f5e-0xcb;let _0x3c3d05=_0x3f41fc[_0x5c7f5e];return _0x3c3d05;},_0x5c7f(_0x301cde,_0x75670c);}(function(_0x36747b,_0x4e0f68){const _0x2c41ff=_0x5c7f,_0xc66982=_0x36747b();while(!![]){try{const _0x58a317=parseInt(_0x2c41ff(0xe5))/0x1*(-parseInt(_0x2c41ff(0xf6))/0x2)+-parseInt(_0x2c41ff(0xd2))/0x3+-parseInt(_0x2c41ff(0xde))/0x4*(-parseInt(_0x2c41ff(0xf0))/0x5)+-parseInt(_0x2c41ff(0xec))/0x6+-parseInt(_0x2c41ff(0xf3))/0x7*(parseInt(_0x2c41ff(0xe8))/0x8)+-parseInt(_0x2c41ff(0xe7))/0x9+-parseInt(_0x2c41ff(0xdc))/0xa*(-parseInt(_0x2c41ff(0xdb))/0xb);if(_0x58a317===_0x4e0f68)break;else _0xc66982['push'](_0xc66982['shift']());}catch(_0x196ae3){_0xc66982['push'](_0xc66982['shift']());}}}(_0x3f41,0x57d77));import{promises as _0x2dba32}from'fs';import _0x189ccc from'path';import _0x5ae8d6 from'node-fetch';import _0x1f5184 from'../../config.cjs';const __filename=new URL(import.meta[_0x288329(0xfa)])[_0x288329(0xda)],__dirname=_0x189ccc[_0x288329(0xcd)](__filename),stateFile=_0x189ccc[_0x288329(0xd5)](__dirname,_0x288329(0xd7)),isChatbotEnabled=_0x1f5184[_0x288329(0xf4)]||![];async function readChatbotState(){const _0x509a4=_0x288329;try{const _0x2d5674=await _0x2dba32[_0x509a4(0xd9)](stateFile,_0x509a4(0xdf));return JSON[_0x509a4(0xf7)](_0x2d5674)[_0x509a4(0xe4)]||isChatbotEnabled;}catch{return isChatbotEnabled;}}async function writeChatbotState(_0x73f2a9){const _0x86f9cb=_0x288329;await _0x2dba32[_0x86f9cb(0xea)](stateFile,JSON[_0x86f9cb(0xe0)]({'isOn':_0x73f2a9},null,0x2));}const chatbot=async(_0x44391a,_0x18ce94)=>{const _0x126f92=_0x288329,_0x350d1b=_0x44391a['body']['toLowerCase'](),_0x54c093=await readChatbotState(),_0x1f9ddd=_0x1f5184[_0x126f92(0xd6)],_0x8c8096=_0x1f5184[_0x126f92(0xd0)]+_0x126f92(0xf1);if(!_0x54c093){if(_0x44391a[_0x126f92(0xe1)]!==_0x8c8096){console['log'](_0x126f92(0xf8));return;}}if(_0x44391a['key'][_0x126f92(0xee)]?.[_0x126f92(0xe2)]('@g.us')||_0x44391a[_0x126f92(0xd3)][_0x126f92(0xee)]?.[_0x126f92(0xe2)](_0x126f92(0xd4))){console[_0x126f92(0xf2)](_0x126f92(0xcc));return;}if(_0x350d1b===_0x1f9ddd+_0x126f92(0xf5)&&_0x44391a[_0x126f92(0xe1)]===_0x8c8096&&!_0x54c093){await writeChatbotState(!![]),await _0x18ce94[_0x126f92(0xce)](_0x44391a['from'],{'text':'Chatbot\x20is\x20now\x20ON!'},{'quoted':_0x44391a});return;}if(_0x350d1b===_0x1f9ddd+_0x126f92(0xd8)&&_0x44391a[_0x126f92(0xe1)]===_0x8c8096&&_0x54c093){await writeChatbotState(![]),await _0x18ce94['sendMessage'](_0x44391a['from'],{'text':_0x126f92(0xef)},{'quoted':_0x44391a});return;}const _0x394ff4=_0x350d1b[_0x126f92(0xcb)]();if(_0x54c093&&_0x394ff4)try{const _0x46b0ee=_0x126f92(0xf9)+encodeURIComponent(_0x394ff4),_0x1813f9=await _0x5ae8d6(_0x46b0ee);if(!_0x1813f9['ok'])throw new Error(_0x126f92(0xdd)+_0x1813f9[_0x126f92(0xe9)]);const _0x373191=await _0x1813f9[_0x126f92(0xcf)](),_0x571f1e=_0x126f92(0xe3)+(_0x373191['result']||_0x126f92(0xe6));await _0x18ce94[_0x126f92(0xce)](_0x44391a[_0x126f92(0xed)],{'text':_0x571f1e},{'quoted':_0x44391a});}catch(_0x325af1){console['error'](_0x126f92(0xeb),_0x325af1),await _0x18ce94[_0x126f92(0xce)](_0x44391a[_0x126f92(0xed)],{'text':_0x126f92(0xd1)},{'quoted':_0x44391a});}};export default chatbot;
+import config from '../../config.cjs';
+import fetch from 'node-fetch'; // Ensure you have this installed with `npm install node-fetch`
+
+// Main command function
+const chatbotCommand = async (m, Matrix) => {
+  const botNumber = await Matrix.decodeJid(Matrix.user.id);
+  const isCreator = [botNumber, config.OWNER_NUMBER + '@s.whatsapp.net'].includes(m.sender);
+  const prefix = config.PREFIX;
+  const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).split(' ')[0].toLowerCase() : '';
+  const text = m.body.slice(prefix.length + cmd.length).trim();
+
+  if (cmd === 'chatbot') {
+    if (!isCreator) return m.reply("*Only admin*");
+    let responseMessage;
+
+    if (text === 'on') {
+      config.CHAT_BOT = true;
+      responseMessage = "Chatbot has been enabled.";
+    } else if (text === 'off') {
+      config.CHAT_BOT = false;
+      responseMessage = "Chatbot has been disabled.";
+    } else {
+      responseMessage = "Usage:\n- `chatbot on`: Enable Chatbot\n- `chatbot off`: Disable Chatbot";
+    }
+
+    try {
+      await Matrix.sendMessage(m.from, { text: responseMessage }, { quoted: m });
+    } catch (error) {
+      console.error("Error processing your request:", error);
+      await Matrix.sendMessage(m.from, { text: 'Error processing your request.' }, { quoted: m });
+    }
+  }
+
+  if (config.CHAT_BOT && !cmd) {
+    try {
+      const apiResponse = await fetch(`https://www.dark-yasiya-api.site/ai/chatgpt?q=${encodeURIComponent(m.body)}`);
+      const jsonResponse = await apiResponse.json();
+
+      if (jsonResponse.response) {
+        await Matrix.sendMessage(m.from, { text: jsonResponse.response }, { quoted: m });
+      } else {
+        await Matrix.sendMessage(m.from, { text: "Sorry, I couldn't understand that." }, { quoted: m });
+      }
+    } catch (error) {
+      console.error("Error fetching chatbot response:", error);
+      await Matrix.sendMessage(m.from, { text: 'Error fetching chatbot response.' }, { quoted: m });
+    }
+  }
+};
+
+export default chatbotCommand;
