@@ -1,6 +1,6 @@
 import config from '../../config.cjs';
 
-// Main command function
+// Anti-Delete Command
 const antideleteCommand = async (m, Matrix) => {
   const botNumber = await Matrix.decodeJid(Matrix.user.id);
   const isCreator = [botNumber, config.OWNER_NUMBER + '@s.whatsapp.net'].includes(m.sender);
@@ -31,23 +31,26 @@ const antideleteCommand = async (m, Matrix) => {
   }
 };
 
-// Anti-Delete handler
+// Anti-Delete Handler
 const antideleteHandler = async (message, Matrix) => {
   if (!config.ANTIDELETE) return;
 
   // Check if the message is deleted
-  if (message.messageStubType === 'REVOKE') {
+  if (message.messageStubType === 68) { // 68 is the type for 'REVOKE' in WhatsApp
     const ownerJid = config.OWNER_NUMBER + '@s.whatsapp.net';
+    const senderJid = message.key.participant || message.key.remoteJid;
+    const chatName = message.key.remoteJid;
     const messageContent = message.message;
 
     try {
-      await Matrix.sendMessage(ownerJid, { 
-        text: `A message was deleted:\n\n- From: ${message.key.participant || message.key.remoteJid}\n- Group: ${message.key.remoteJid || 'Private chat'}` 
+      // Notify the owner about the deleted message
+      await Matrix.sendMessage(ownerJid, {
+        text: `A message was deleted:\n\n- From: ${senderJid}\n- Group/Chat: ${chatName || 'Private chat'}`,
       });
 
       // Forward the deleted message to the owner
       if (messageContent) {
-        await Matrix.forwardMessage(ownerJid, message);
+        await Matrix.copyNForward(ownerJid, message, true); // Use `copyNForward` instead of `forwardMessage`
       }
     } catch (error) {
       console.error("Error forwarding deleted message:", error);
